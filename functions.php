@@ -25,6 +25,20 @@ function theme_js() {
 add_action( 'wp_enqueue_scripts', 'theme_js' );
 
 /**
+ * Register Custom Navigation Walker
+ */
+function register_navwalker() {
+    $navwalker_php = get_template_directory() . '/vendor/wp-bootstrap/wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php';
+    if( ! file_exists( $navwalker_php ) ) {
+        // File doesn't exist
+        return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing. Try running `composer install`.', 'userguide' ) );
+    } else {
+        require_once( $navwalker_php );
+    }
+}
+register_navwalker();
+
+/**
  * Register Menu Locations
  */
 register_nav_menus([
