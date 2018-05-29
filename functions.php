@@ -42,8 +42,8 @@ register_navwalker();
  * Register Menu Locations
  */
 register_nav_menus([
-    'main-menu' => esc_html__( 'Main Menu – Displayed at the top of the Pgae', 'userguide' ),
-    'guide-menu' => esc_html__( 'Guide Menu – Displayed to the left of the User Guide page', 'userguide' )
+    'main-menu' => esc_html__( 'Header at the top of the page.', 'userguide' ),
+    'guide-menu' => esc_html__( 'Left of `guide` pages.', 'userguide' )
 ]);
 
 /**
