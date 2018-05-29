@@ -1,5 +1,5 @@
 <?php get_header(); ?>
 
-Index
+Search
 
 <?php get_footer(); ?>

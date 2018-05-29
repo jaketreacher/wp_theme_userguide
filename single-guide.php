@@ -1,5 +1,5 @@
 <?php get_header(); ?>
 
-Index
+Single Guide
 
 <?php get_footer(); ?>

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
 
-Index
+404
 
 <?php get_footer(); ?>
