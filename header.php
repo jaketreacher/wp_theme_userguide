@@ -16,7 +16,7 @@
             <?php
                 wp_nav_menu([
                     'theme_location'    => 'main-menu',
-                    'depth'             => 2,
+                    'depth'             => 1,
                     'container'         => 'div',
                     'container_class'   => 'collapse navbar-collapse',
                     'container_id'      => 'main-nav',
