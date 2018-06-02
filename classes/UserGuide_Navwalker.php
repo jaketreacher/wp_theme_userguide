@@ -56,7 +56,9 @@ if ( ! class_exists( 'UserGuide_Navwalker' ) ) {
             $prefix = $this->get_number($depth);
             $title = $object->title;
             $active = in_array( 'current-menu-item', $object->classes ) ? 'active' : '';
-            $text = "<a class='nav-link {$active}' href='{$url}'>{$prefix} {$title}</a>";
+            $padding = 16 + $depth * 20;
+            $style = "style='padding-left: {$padding}px'";
+            $text = "<a class='nav-link {$active}' href='{$url}' {$style}>{$prefix} {$title}</a>";
             $output .= "<li class='nav-item'>{$text}";
         }
 
