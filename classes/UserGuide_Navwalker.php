@@ -16,7 +16,7 @@ if ( ! class_exists( 'UserGuide_Navwalker' ) ) {
          * @param array  $args   An array of additional arguments.
          */
         public function start_lvl( &$output, $depth = 0, $args = array() ) {
-            $output .= "<div class='start_level'>";
+            $output .= "<ul class='nav nav-pills flex-column'>";
         }
 
         /**
@@ -33,7 +33,7 @@ if ( ! class_exists( 'UserGuide_Navwalker' ) ) {
          * @param array  $args   An array of additional arguments.
          */
         public function end_lvl( &$output, $depth = 0, $args = array() ) {
-            $output .= "</div>";
+            $output .= "</ul>";
         }
         
         /**
@@ -52,9 +52,12 @@ if ( ! class_exists( 'UserGuide_Navwalker' ) ) {
          * @param int    $current_object_id ID of the current item.
          */
         public function start_el( &$output, $object, $depth = 0, $args = array(), $current_object_id = 0 ) {
+            $url = $object->url;
             $prefix = $this->get_number($depth);
             $title = $object->title;
-            $output .= "<span class='start_el'>{$prefix} {$title}";
+            $active = in_array( 'current-menu-item', $object->classes ) ? 'active' : '';
+            $text = "<a class='nav-link {$active}' href='{$url}'>{$prefix} {$title}</a>";
+            $output .= "<li class='nav-item'>{$text}";
         }
 
         /**
@@ -71,7 +74,7 @@ if ( ! class_exists( 'UserGuide_Navwalker' ) ) {
          * @param array  $args   An array of additional arguments.
          */
         public function end_el( &$output, $object, $depth = 0, $args = array() ) {
-            $output .= "</span>";
+            $output .= "</li>";
         }
 
         /**
