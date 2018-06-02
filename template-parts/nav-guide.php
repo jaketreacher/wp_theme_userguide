@@ -1,5 +1,4 @@
 <div class="guide-menu-container">
-    <span class="toggle">X</span>
     <?php
         wp_nav_menu([
             'theme_location'    => 'guide-menu',
