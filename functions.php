@@ -74,3 +74,23 @@ function create_guide() {
     register_post_type( 'guide', $args );
 }
 add_action( 'init', 'create_guide' );
+
+function get_guide_prev_next() {
+    global $post;
+    $items = wp_get_nav_menu_items( 'guide-menu' );
+    $curr_idx = array_search($post->ID, array_column($items, 'object_id')); // Get index of current page
+
+    if( $curr_idx === false ) return; // Exit if the current page is not in the menu
+
+    // If we aren't the first page, we can get the 'previous' page
+    if( $curr_idx > 0 ) {
+        $url = $items[$curr_idx-1]->url;
+        echo "<a href='{$url}' class='prev'>Previous</a>";
+    }
+
+    // If we aren't the last page, we can get the 'next' page
+    if( $curr_idx < count($items) - 1 ) {
+        $url = $items[$curr_idx+1]->url;
+        echo "<a href='{$url}' class='next'>Next</a>";
+    }
+}

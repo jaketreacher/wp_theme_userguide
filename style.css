@@ -56,6 +56,14 @@ header.entry-header {
     min-height: calc(100vh - 178px);
 }
 
+.prevnext .prev {
+    float: left;
+}
+
+.prevnext .next {
+    float: right;
+}
+
 footer {
     height: 50px;
     padding: 10px 0;
