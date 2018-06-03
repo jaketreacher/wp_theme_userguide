@@ -11,7 +11,10 @@
 
                     <?php if( get_theme_mod( 'footer_attribution' ) != 'hide' ) : ?>
                         <span class="footer-attribution">
-                            <a href="https://jaketreacher.com" target="_blank">Theme by Jake Treacher</a>
+                            Theme:
+                            <a href="https://github.com/jaketreacher/wp_theme_userguide" target="_blank"><u>User&nbsp;Guide</u></a>
+                            by
+                            <a href="https://jaketreacher.com" target="_blank"><u>Jake&nbsp;Treacher</u></a>
                         </span>
         
                     <?php endif; ?>
