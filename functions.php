@@ -1,4 +1,5 @@
 <?php
+include('customizer.php');
 
 add_theme_support( 'html5' );
 
