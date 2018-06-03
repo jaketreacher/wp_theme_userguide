@@ -80,3 +80,25 @@ footer a:hover {
     color: rgba(255,255,255,0.75);
     text-decoration: none;
 }
+
+.navbar-dark {
+    color: rgba(255,255,255,0.5);
+}
+
+.navbar-light {
+    color: rgba(0,0,0,0.5);
+}
+
+.navbar img {
+    max-height: 50px;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        padding: 1rem 1rem 0 1rem;
+    }
+
+    .navbar img {
+        max-height: 150px;
+    }
+}

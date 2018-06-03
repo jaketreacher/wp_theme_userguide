@@ -94,3 +94,19 @@ function get_guide_prev_next() {
         echo "<a href='{$url}' class='next'>Next</a>";
     }
 }
+
+function userguide_get_header_image($args) {
+    $name = $args['name'];
+    $width = $args['width'];
+    $height = $args['height'];
+
+    $image_id = get_theme_mod( $name );
+    $url = "http://via.placeholder.com/{$width}x${height}";
+    $alt = "Placeholder Image";
+    if( $image_id != false ) {
+        $url = wp_get_attachment_image_url( $image_id, 'full' );
+        $alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+    }
+    
+    echo "<img src='{$url}' alt='{$alt}'>";
+}

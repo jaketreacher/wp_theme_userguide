@@ -1,5 +1,11 @@
 ( function( $ ) {
 
+    wp.customize( 'blogdescription', function( value ) {
+        value.bind( function( newval ) {
+            $( 'nav.navbar .row div:nth-of-type(2)' ).html(newval);
+        } );
+    } );
+
     wp.customize( 'nav_color', function( value ) {
         value.bind( function( newval ) {
             function is_bright() {
