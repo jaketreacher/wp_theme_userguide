@@ -25,4 +25,10 @@
         } );
     } );
 
+    wp.customize( 'footer_text', function( value ) {
+        value.bind( function ( newval ) {
+            $( '.footer .footer-text' ).html(newval);
+        } );
+    } );
+
 } )( jQuery );

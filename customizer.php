@@ -12,6 +12,9 @@ function userguide_customizer_js() {
 add_action( 'customize_preview_init', 'userguide_customizer_js' );
 
 function userguide_customizer_settings( $wp_customize ) {
+    /**
+     * Navbar Background Color
+     */
     $wp_customize->add_setting( 'nav_color', array(
         'default'   => '#f8f9fa',
         'transport' => 'postMessage'
@@ -20,9 +23,41 @@ function userguide_customizer_settings( $wp_customize ) {
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'nav_color', array(
         'label'     => 'Nav Color',
         'section'   => 'colors',
-        'settings'  => 'nav_color'
-    ) ) );
+        ) ) 
+    );
 
+    /**
+     * Footer Text
+     */
+    $wp_customize->add_setting( 'footer_text', array(
+        'default'   => '&copy; My Company 2018',
+        'transport' => 'postMessage'
+        )
+    );
+
+    $wp_customize->add_control( 'footer_text', array(
+        'label'     => 'Footer Text',
+        'section'   => 'title_tagline',
+        'type'      => 'text'
+    ) );
+
+    /**
+     * Footer Attribution
+     */
+    $wp_customize->add_setting( 'footer_attribution', array(
+        'default'   => 'show',
+        'transport' => 'refresh'
+    ) );
+
+    $wp_customize->add_control( 'footer_attribution', array(
+        'label'     => 'Footer Attribution',
+        'section'   => 'title_tagline',
+        'type'      => 'select',
+        'choices'   => array( 
+            'show'  => 'Shown',
+            'hide'  => 'Hidden'
+        ),
+    ) );
     // $wp_customize->remove_section( 'static_front_page' );
 }
 
