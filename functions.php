@@ -1,4 +1,15 @@
 <?php
+/**
+ * Autoload composer libraries
+ */
+require __DIR__.'/vendor/autoload.php';
+
+/**
+ * Load .env variables
+ */
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
 include('customizer.php');
 
 add_theme_support( 'html5' );
@@ -7,8 +18,8 @@ add_theme_support( 'html5' );
  * Add CSS
  */
 function theme_styles() {
-    wp_enqueue_style( 'bootstrap_css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' );
-    wp_enqueue_style( 'main_css', get_template_directory_uri() . '/style.css' );
+    $file = getenv( 'APP_ENV' ) == 'development' ? '/build/style.css' : '/style.css';
+    wp_enqueue_style( 'main_css', get_template_directory_uri() . $file );
 }
 add_action( 'wp_enqueue_scripts', 'theme_styles' );
 
@@ -17,11 +28,9 @@ add_action( 'wp_enqueue_scripts', 'theme_styles' );
  */
 function theme_js() {
     global $wp_scripts;
-
-    wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.3.1.slim.min.js' );
-    wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' );
-    wp_enqueue_script( 'bootstrap_js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' );
-    // wp_enqueue_script( 'main_js', get_template_directory_uri() . '/script.js');
+    
+    $file = getenv( 'APP_ENV' ) == 'development' ? '/build/bundle.js' : '/bundle.js';
+    wp_enqueue_script( 'main_js', get_template_directory_uri() . $file );
 }
 add_action( 'wp_enqueue_scripts', 'theme_js' );
 

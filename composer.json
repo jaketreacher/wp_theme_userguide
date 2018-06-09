@@ -1,5 +1,6 @@
 {
     "require": {
-        "wp-bootstrap/wp-bootstrap-navwalker": "^4.1"
+        "wp-bootstrap/wp-bootstrap-navwalker": "^4.1",
+        "vlucas/phpdotenv": "^2.4"
     }
 }
