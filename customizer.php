@@ -112,21 +112,3 @@ function userguide_customizer_css() {
     echo "</style>";
 }
 add_action( 'wp_head', 'userguide_customizer_css' );
-
-/**
- * Change the style of navbar depending on the
- * perceived brightness of the background color.
- */
-function get_navbar_type() {
-    function is_bright() {
-        $hex = get_theme_mod( 'nav_color', '#f8f9fa' );
-        $threshold = 130;
-
-        list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
-        $brightness = sqrt(pow($r,2)*0.241 + pow($g,2)*0.691 + pow($b,2)*0.068);
-
-        return $brightness > $threshold;
-    }
-
-    echo is_bright() ? "navbar-light" : "navbar-dark";
-}

@@ -119,3 +119,17 @@ function userguide_get_header_image($args) {
     
     echo "<img src='{$url}' alt='{$alt}'>";
 }
+
+/**
+ * Change the style of navbar depending on the
+ * perceived brightness of the background color.
+ */
+function get_navbar_type() {
+    $hex = get_theme_mod( 'nav_color', '#f8f9fa' );
+    $threshold = 130;
+
+    list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
+    $brightness = sqrt(pow($r,2)*0.241 + pow($g,2)*0.691 + pow($b,2)*0.068);
+
+    echo $brightness > $threshold ? "navbar-light" : "navbar-dark";
+}
