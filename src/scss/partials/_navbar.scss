@@ -1,0 +1,54 @@
+nav.navbar {
+    position: relative;
+    width: 100%;
+    height: 50px;
+
+    &.navbar-light {
+        color: black;
+    }
+
+    &.navbar-dark {
+        color: white;
+    }
+
+    ul {
+        display: none;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.navbar-toggler {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 26px;
+    height: 26px;
+
+    .line {
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background-color: white;
+
+        &:nth-of-type(1) {
+            top: 0;
+        }
+
+        &:nth-of-type(2) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:nth-of-type(3) {
+            bottom: 0;
+        }
+    }
+}
