@@ -30,7 +30,7 @@ function theme_js() {
     global $wp_scripts;
     
     $file = getenv( 'APP_ENV' ) == 'development' ? '/build/bundle.js' : '/bundle.js';
-    wp_enqueue_script( 'main_js', get_template_directory_uri() . $file );
+    wp_enqueue_script( 'main_js', get_template_directory_uri() . $file, null, false, true);
 }
 add_action( 'wp_enqueue_scripts', 'theme_js' );
 
