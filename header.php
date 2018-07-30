@@ -8,29 +8,15 @@
 </head>
 <body <?php body_class(); ?>>
     <div class="container">
-        <nav class="navbar navbar-expand-md flex-row flex-md-column <?php get_navbar_type() ?>">
-            <div class="row text-center align-items-center flex-nowrap align-self-md-stretch justify-content-around">
-                <div class="col-auto">
-                    <?php 
-                        userguide_get_header_image( array(
-                            'name'      => 'product_logo',
-                            'width'     => 450,
-                            'height'    => 150
-                        ) );
-                    ?>
-                </div>
-                <div class="col-sm d-none d-md-block">
-                    <?php bloginfo( 'description' ); ?>
-                </div>
-                <div class="col-auto">
-                    <?php 
-                        userguide_get_header_image( array(
-                            'name'      => 'company_logo',
-                            'width'     => 150,
-                            'height'    => 150
-                        ) );
-                    ?>
-                </div>
+        <nav class="navbar navbar-expand-md <?php get_navbar_type() ?>">
+            <div class="navbar-brand">
+                <?php 
+                    userguide_get_header_image( array(
+                        'name'      => 'brand_logo',
+                        'width'     => 50,
+                        'height'    => 50
+                    ) );
+                ?>
             </div>
         
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
